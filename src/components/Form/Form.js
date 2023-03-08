@@ -1,10 +1,11 @@
 import React from "react";
 
-function Form() {
+function Form({ updateGuesses }) {
   const [guess, setGuess] = React.useState("");
   function handleSubmit(e) {
     e.preventDefault();
     console.log(guess);
+    updateGuesses(guess)
     setGuess("");
   }
   function handleChange(e) {
@@ -18,6 +19,7 @@ function Form() {
     <form onSubmit={handleSubmit} className="guess-input-wrapper">
       <label htmlFor="guess-input">Enter guess:</label>
       <input
+        required
         id="guess-input"
         name="guess"
         type="text"
@@ -25,6 +27,7 @@ function Form() {
         // regex pattern - min 5 chars, max 5 chars, only letters
         pattern="[A-Z]{5}"
         onChange={handleChange}
+        title="5 letters only"
       />
     </form>
   );
