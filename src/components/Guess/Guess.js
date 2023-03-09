@@ -9,8 +9,8 @@ function Guess({ guessInfo }) {
           return (
             <span
               key={letterIndex}
-              className={`cell ${guessInfo?.[letterIndex].status}`}>
-              {guessInfo?.[letterIndex].letter}
+              className={`cell ${guessInfo?.[letterIndex]?.status}`}>
+              {guessInfo?.[letterIndex]?.letter}
             </span>
           );
         })}

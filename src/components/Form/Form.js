@@ -1,11 +1,11 @@
 import React from "react";
 
-function Form({ updateGuesses }) {
+function Form({ disabled, updateGuesses }) {
   const [guess, setGuess] = React.useState("");
   function handleSubmit(e) {
     e.preventDefault();
     console.log(guess);
-    updateGuesses(guess)
+    updateGuesses(guess);
     setGuess("");
   }
   function handleChange(e) {
@@ -19,6 +19,7 @@ function Form({ updateGuesses }) {
     <form onSubmit={handleSubmit} className="guess-input-wrapper">
       <label htmlFor="guess-input">Enter guess:</label>
       <input
+        disabled={disabled}
         required
         id="guess-input"
         name="guess"
