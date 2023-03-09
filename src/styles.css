@@ -218,6 +218,31 @@ h1 {
 .modal-title {
   margin-bottom: 0.5em;
 }
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.keyboard-letter p {
+  height: 40px;
+  width: 40px;
+  border: 10px;
+  background-color: var(--color-gray-700);
+  border-radius: 10px;
+
+}
+.centered{
+  display: grid;
+  place-content: center;
+}
+
 
 /*
   Keyframe animations

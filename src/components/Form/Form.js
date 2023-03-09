@@ -16,7 +16,7 @@ function Form({ disabled, updateGuesses }) {
     setGuess(e.target.value.toUpperCase());
   }
   return (
-    <form onSubmit={handleSubmit} className="guess-input-wrapper">
+    <form onSubmit={handleSubmit} className="guess guess-input-wrapper">
       <label htmlFor="guess-input">Enter guess:</label>
       <input
         disabled={disabled}

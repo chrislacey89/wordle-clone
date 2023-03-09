@@ -5,6 +5,7 @@ import { WORDS } from "../../data";
 import Form from "../Form/Form";
 import Banner from "../Banner/Banner";
 import GuessResults from "../GuessResults/GuessResults";
+import Keyboard from "../Keyboard/Keyboard";
 import { checkGuess } from "../../game-helpers";
 import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
 // Pick a random word on every pageload.
@@ -34,6 +35,7 @@ function Game() {
       {winState !== "running" && (
         <Banner resetGame={resetGame} winState={winState} answer={answer} />
       )}
+      <Keyboard></Keyboard>
 
       <Form
         disabled={winState !== "running"}
