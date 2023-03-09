@@ -14,9 +14,25 @@ function Game() {
   const [answer, setAnswer] = React.useState(() => sample(WORDS));
   const [guesses, setGuesses] = React.useState([]);
   const [winState, setWinState] = React.useState("running");
+  const [guessedLetters, setGuessedLetters] = React.useState({});
   const lastGuessHasBeenMade = guesses.length + 1 === NUM_OF_GUESSES_ALLOWED;
   function updateGuesses(guess) {
     setGuesses([...guesses, checkGuess(guess, answer)]);
+    setGuessedLetters((guessedLettersCopy) => {
+
+      for (let i = 0; i < guess.length; i++) {
+        if (!guessedLettersCopy[guess[i]]) {
+          guessedLettersCopy[guess[i]] = 'incorrect';
+        }
+        if(answer.includes(guess[i])){
+          guessedLettersCopy[guess[i]] = 'misplaced';
+        }
+        if (guess[i] === answer[i]){
+          guessedLettersCopy[guess[i]] = 'correct';
+        }
+      }
+      return guessedLettersCopy
+    });
     if (lastGuessHasBeenMade && guess !== answer) {
       setWinState("lose");
     }
@@ -31,15 +47,15 @@ function Game() {
   }
   return (
     <>
-      <GuessResults guesses={guesses}></GuessResults>
+      <GuessResults guesses={guesses}/>
       {winState !== "running" && (
         <Banner resetGame={resetGame} winState={winState} answer={answer} />
       )}
-      <Keyboard></Keyboard>
+      <Keyboard guessedLetters={guessedLetters}/>
 
       <Form
         disabled={winState !== "running"}
-        updateGuesses={updateGuesses}></Form>
+        updateGuesses={updateGuesses}/>
     </>
   );
 }

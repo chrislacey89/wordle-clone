@@ -6,7 +6,7 @@ const ROWS = [
   ["Z", "X", "C", "V", "B", "N", "M"],
 ];
 
-function Keyboard() {
+function Keyboard({guessedLetters}) {
   return (
     <div className="keyboard">
       {ROWS.map((row, index) => {
@@ -15,7 +15,7 @@ function Keyboard() {
             {row.map((letter, index) => {
               return (
                 <div className="keyboard-letter ">
-                  <p className="centered">{letter}</p>
+                  <p className={`centered ${guessedLetters[letter]}`}>{letter}</p>
                 </div>
               );
             })}

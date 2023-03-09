@@ -139,6 +139,21 @@ h1 {
   border-color: var(--color-warning);
   color: white;
 }
+.keyboard-letter .correct {
+  background: var(--color-success);
+  border-color: var(--color-success);
+  color: white;
+}
+.keyboard-letter .incorrect {
+  background: var(--color-gray-300);
+  border-color: var(--color-gray-300);
+  color: white;
+}
+.keyboard-letter .misplaced {
+  background: var(--color-warning);
+  border-color: var(--color-warning);
+  color: white;
+}
 
 .guess-input-wrapper {
   display: flex;
