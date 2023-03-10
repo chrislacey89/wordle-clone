@@ -11,10 +11,10 @@ function Keyboard({guessedLetters}) {
     <div className="keyboard">
       {ROWS.map((row, index) => {
         return (
-          <div className="keyboard-row">
+          <div key={index} className="keyboard-row">
             {row.map((letter, index) => {
               return (
-                <div className="keyboard-letter ">
+                <div key={index} className="keyboard-letter ">
                   <p className={`centered ${guessedLetters[letter]}`}>{letter}</p>
                 </div>
               );
